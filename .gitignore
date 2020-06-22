@@ -23,3 +23,7 @@ bin/
 # Mac files
 .DS_Store
 .idea/
+
+
+# my changes
+.github
