@@ -1,7 +1,8 @@
+// gradle test --info --tests
+// "com.williamfiset.algorithms.datastructures.segmenttree.SegmentTreeWithPointersTest"
 package com.williamfiset.algorithms.datastructures.segmenttree;
 
 import static com.google.common.truth.Truth.assertThat;
-import static org.junit.Assert.*;
 
 import com.williamfiset.algorithms.utils.TestUtils;
 import org.junit.Before;
