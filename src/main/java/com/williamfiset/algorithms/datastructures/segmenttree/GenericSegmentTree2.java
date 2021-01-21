@@ -42,7 +42,7 @@ public class GenericSegmentTree2 {
     Long value;
     Long lazy;
 
-    // Use for Min/Max mul queries
+    // Used only for Min/Max mul queries
     Long min, max;
 
     // The range of the segment [tl, tr]
@@ -124,7 +124,9 @@ public class GenericSegmentTree2 {
   // // TODO(issue/208): support this multiplication update
   private Ruf minQueryMulUpdate =
       (s, x) -> {
-        if (x < 0) {
+        if (x == 0) {
+          return 0L;
+        } else if (x < 0) {
           // s.min was already calculated
           if (safeMul(s.value, x) == s.min) {
             return s.max;
@@ -146,7 +148,9 @@ public class GenericSegmentTree2 {
   // TODO(issue/208): support this multiplication update
   private Ruf maxQueryMulUpdate =
       (s, x) -> {
-        if (x < 0) {
+        if (x == 0) {
+          return 0L;
+        } else if (x < 0) {
           if (safeMul(s.value, x) == s.min) {
             return s.max;
           } else {
@@ -334,6 +338,7 @@ public class GenericSegmentTree2 {
     }
 
     if (tl == l && tr == r) {
+      // Only used for min/max mul queries
       st[i].min = st[i].min * x;
       st[i].max = st[i].max * x;
 
